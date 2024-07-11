@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --clr-aqua: #0cdaf5;
+
+            --clr-black: #000000;
+
+            --clr-white: white;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .ground {
+            background-color: var(--clr-aqua);
+        }
+        #drip {
+            /* border: 1px solid black; */
+            width: fit-content;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        #drop {
+            width: 25px;
+            height: 25px;
+            margin-top: 5px 0;
+            border: 1px solid var(--clr-black);
+            background-color: var(--clr-aqua);
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-top-left-radius: 50%;
+            transform: rotate(-45deg) translateY(-25px) translateX(25px);
+            animation: drop-fall 0.4s linear infinite;
+        }
+        #drop-scattering {
+            /* border: 1px solid black; */
+            width: 25px;
+            height: 25px;
+            margin-top: 5px 0;
+            background-image: radial-gradient(var(--clr-aqua) 30%, var(--clr-black) 30%, var(--clr-black) 35%, transparent 35%),
+            radial-gradient(var(--clr-aqua) 30%, var(--clr-black) 30%, var(--clr-black) 35%, transparent 35%),
+            radial-gradient(var(--clr-aqua) 30%, var(--clr-black) 30%, var(--clr-black) 35%, transparent 35%),
+            radial-gradient(var(--clr-aqua) 30%, var(--clr-black) 30%, var(--clr-black) 35%, transparent 35%),
+            radial-gradient(var(--clr-aqua) 30%, var(--clr-black) 30%, var(--clr-black) 35%, transparent 35%);
+            background-size: 10% 20%, 10% 20%, 5% 15%, 5% 15%, 5% 15%;
+            background-position: 50% 110%, 50% 110%, 50% 110%, 50% 110%, 50% 110%;
+            background-repeat: no-repeat;
+            animation: scatter 0.4s ease-out infinite;
+            position: absolute;
+            bottom: 0;
+            width: 1000%;
+            height: 25%;
+            left: -450%;
+        }
+        #role {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 10px;
+            /* line-height: 45px; */
+            color: white;
+            transform: scale(1) perspective(35px) rotateX(-5deg);
+            text-shadow: 1px -1px 1px rgb(226, 224, 224),
+            1px -2px 1px rgb(226, 224, 224),
+            1px -3px 1px rgb(226, 224, 224),
+            1px -4px 1px rgb(226, 224, 224),
+            1px -5px 1px rgb(226, 224, 224),
+            1px -6px 1px rgb(226, 224, 224),
+            1px -7px 1px rgb(226, 224, 224),
+            1px -8px 1px rgb(226, 224, 224),
+            1px -9px 1px rgb(226, 224, 224),
+            1px -10px 1px rgb(226, 224, 224),
+            1px -11px 1px rgb(226, 224, 224),
+            1px -12px 1px rgb(226, 224, 224),
+            1px -15px 6px rgba(16, 16, 16, 0.4),
+            1px -18px 10px rgba(16, 16, 16, 0.2),
+            1px -22px 35px rgba(16, 16, 16, 0.2),
+            1px -25px 60px rgba(16, 16, 16, 0.4);
+        }
+
+        @keyframes scatter {
+            50% {
+                background-position: 75% 85%, 25% 85%, 65% 95%, 35% 95%, 35% 55%;
+            }
+            100% {
+                background-position: 100% 110%, 0% 100%, 75% 110%, 25% 110%, 20% 65%;
+            }
+        }
+        @keyframes drop-fall {
+            100% {
+                transform: rotate(-45deg) translateY(200px) translateX(-200px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container sky">
+        <div id="drip">
+            <div id="drop"></div>
+            <div id="drop-scattering">
+    
+            </div>
+        </div>
+
+    </div>
+    <div class="container ground">
+        <div id="role-wrapper">
+            <div id="role">
+                BACKEND </br> DEVELOPER
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
